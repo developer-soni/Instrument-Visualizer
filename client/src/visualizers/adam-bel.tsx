@@ -12,7 +12,6 @@ function Dub(p5: P5, analyzer: Tone.Analyser) {
   const colors = ['blue', 'white', 'yellow', 'red']
 
   p5.background('black');
-  p5.noFill();
 
   p5.strokeWeight(dim * 0.01);
 
@@ -23,8 +22,9 @@ function Dub(p5: P5, analyzer: Tone.Analyser) {
     p5.translate(-170*j, 17);
     p5.rotateX(p5.frameCount*0.01*j);
     p5.rotateY(p5.frameCount*0.03*j);
+    p5.stroke(colors[j]);
+    p5.fill(colors[j]);
     for (let i = 0; i < values.length; i++) {
-      p5.stroke(colors[j]);
       const amplitude = values[i] as number;
       p5.box(amplitude*100*(j+1), amplitude*100*(j+1), amplitude*100*(j+1));
     }

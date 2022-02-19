@@ -21,35 +21,33 @@ interface ViolinKeyProps {
   minor?: boolean; 
   octave: number;
   index: number; 
+  topDi: number;
+  leftDi: number; 
+  rota: string; 
 }
 
-export function ViolinKey({note, synth, minor, index}: ViolinKeyProps): JSX.Element {
+export function ViolinKey({note, synth, minor, index, topDi, leftDi, rota}: ViolinKeyProps): JSX.Element {
   return (
     <div
-      onMouseDown={() => synth?.triggerAttack(`${note}`)} 
-      onMouseUp={() => synth?.triggerRelease('+0.1')}
-      className={classNames('ba pointer absolute dim', {
-        'bg-black black h3': minor,
-        'black bg-white h4': !minor,
-      })}
       style={{
-        top: 0,
-        left: `${(index * 2)-7}rem`,
-        zIndex: minor ? 1 : 0,
-        width: minor ? '1.5rem' : '2rem',
-        marginLeft: minor ? '0.25rem' : 0
+        transform: rota
       }}>
-      <span 
+      <div
+        onMouseDown={() => synth?.triggerAttack(`${note}`)} 
+        onMouseUp={() => synth?.triggerRelease('+0.1')}
+        className={classNames('ba pointer absolute dim')}
         style={{
-          top: minor ? '40px' : '100px',
-          left: minor ? '1px' : '4px',
-          color: minor ? 'white' : 'black',
-          fontSize: minor ? '11px' : '15px',
-          boxShadow: minor ? '1px 1px white, -1px -1px white' : '1px 1px black, -1px -1px black',
-          position: 'relative'
+          top: topDi,
+          transform: "rotate(0deg)",
+          left: `${leftDi}rem`,
+          zIndex: 0,
+          marginLeft: minor ? '0.25rem' : 0,
+          background: "#C8C9C5",
+          height: '10px',
+          width: "20px",
+          borderRadius: "6px"
         }}>
-        {note}
-      </span>
+      </div>
     </div>
   );
 }
@@ -107,28 +105,43 @@ function Violin({synth, setSynth}: InstrumentProps): JSX.Element {
   return (
     <div className="pv4">
       <div className={"image"}>
-        <img src={image} alt={"Violin"}/>
+        <img src={image} alt={"Violin"} style={{
+          position: 'absolute',
+          top: window.innerHeight/16,
+          left: window.innerWidth/8
+        }}/>
       </div>
-      <div style={{color:'white'}}>violin</div>
       <div className="relative dib h4 w-100 ml4">
-        {Range(2, 7).map(octave =>
+        {Range(3, 4).map(octave =>
           keys.map(key => {
             const isMinor = key.note.indexOf('b') !== -1;
-            const isB = key.note.indexOf('B') !== -1;
             const note = `${key.note}${octave+1}`;
-            if ((octave === 2 && key.note !== "G") || (octave === 6 && isB)) {
+            if (isMinor) {
               return null
-            } else if (octave === 2 && key.note === "G") {
-              return (
-                <ViolinKey
-                  key={note} //react key
-                  note={note}
-                  synth={synth}
-                  minor={isMinor}
-                  octave={octave+1}
-                  index={(octave - 2) * 7 + 6}
-                />
-              );
+            } 
+            return (
+              <ViolinKey
+                key={note} //react key
+                note={note}
+                synth={synth}
+                minor={isMinor}
+                octave={octave+1}
+                index={(octave - 2) * 7 + key.idx}
+                topDi={125}
+                leftDi={(((octave - 2) * 7 + key.idx) * 2)+20}
+                rota={"rotate(1.5deg)"}
+              />
+            );
+          }),
+        )}
+      </div>
+      <div className="relative dib h4 w-100 ml4">
+        {Range(4, 5).map(octave =>
+          keys.map(key => {
+            const isMinor = key.note.indexOf('b') !== -1;
+            const note = `${key.note}${octave+1}`;
+            if (isMinor) {
+              return null
             }
             return (
               <ViolinKey
@@ -138,6 +151,57 @@ function Violin({synth, setSynth}: InstrumentProps): JSX.Element {
                 minor={isMinor}
                 octave={octave+1}
                 index={(octave - 2) * 7 + key.idx}
+                topDi={3}
+                leftDi={(((octave - 2) * 7 + key.idx) * 2)+3}
+                rota={"rotate(0deg)"}
+              />
+            );
+          }),
+        )}
+      </div>
+      <div className="relative dib h4 w-100 ml4">
+        {Range(5, 6).map(octave =>
+          keys.map(key => {
+            const isMinor = key.note.indexOf('b') !== -1;
+            const note = `${key.note}${octave+1}`;
+            if (isMinor) {
+              return null
+            }
+            return (
+              <ViolinKey
+                key={note} //react key
+                note={note}
+                synth={synth}
+                minor={isMinor}
+                octave={octave+1}
+                index={(octave - 2) * 7 + key.idx}
+                topDi={-120}
+                leftDi={(((octave - 2) * 7 + key.idx) * 2)-11}
+                rota={"rotate(0deg)"}
+              />
+            );
+          }),
+        )}
+      </div>
+      <div className="relative dib h4 w-100 ml4">
+        {Range(6, 7).map(octave =>
+          keys.map(key => {
+            const isMinor = key.note.indexOf('b') !== -1;
+            const note = `${key.note}${octave+1}`;
+            if (isMinor) {
+              return null
+            }
+            return (
+              <ViolinKey
+                key={note} //react key
+                note={note}
+                synth={synth}
+                minor={isMinor}
+                octave={octave+1}
+                index={(octave - 2) * 7 + key.idx}
+                topDi={-240}
+                leftDi={(((octave - 2) * 7 + key.idx) * 2)-22}
+                rota={"rotate(-1.5deg)"}
               />
             );
           }),
