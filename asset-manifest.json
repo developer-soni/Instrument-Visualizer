@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Instrument-Visualizer/static/css/main.f024f3df.chunk.css",
+    "main.js": "/Instrument-Visualizer/static/js/main.5486bea7.chunk.js",
+    "main.js.map": "/Instrument-Visualizer/static/js/main.5486bea7.chunk.js.map",
+    "runtime-main.js": "/Instrument-Visualizer/static/js/runtime-main.55ab42e3.js",
+    "runtime-main.js.map": "/Instrument-Visualizer/static/js/runtime-main.55ab42e3.js.map",
+    "static/css/2.a1596f27.chunk.css": "/Instrument-Visualizer/static/css/2.a1596f27.chunk.css",
+    "static/js/2.a9bc6ca1.chunk.js": "/Instrument-Visualizer/static/js/2.a9bc6ca1.chunk.js",
+    "static/js/2.a9bc6ca1.chunk.js.map": "/Instrument-Visualizer/static/js/2.a9bc6ca1.chunk.js.map",
+    "index.html": "/Instrument-Visualizer/index.html",
+    "static/css/2.a1596f27.chunk.css.map": "/Instrument-Visualizer/static/css/2.a1596f27.chunk.css.map",
+    "static/css/main.f024f3df.chunk.css.map": "/Instrument-Visualizer/static/css/main.f024f3df.chunk.css.map",
+    "static/js/2.a9bc6ca1.chunk.js.LICENSE.txt": "/Instrument-Visualizer/static/js/2.a9bc6ca1.chunk.js.LICENSE.txt",
+    "static/media/flute.dc30191d.png": "/Instrument-Visualizer/static/media/flute.dc30191d.png",
+    "static/media/violin.35c8fedd.jpg": "/Instrument-Visualizer/static/media/violin.35c8fedd.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.55ab42e3.js",
+    "static/css/2.a1596f27.chunk.css",
+    "static/js/2.a9bc6ca1.chunk.js",
+    "static/css/main.f024f3df.chunk.css",
+    "static/js/main.5486bea7.chunk.js"
+  ]
+}
