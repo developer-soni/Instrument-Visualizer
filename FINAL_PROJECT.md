@@ -1,11 +1,9 @@
 # Visualizer Project
 
-## Individual Component
-
-Add a **unique** visualizer (i.e., add code under `client/src/visualizers/`) 
 
 ### Visualizer Component
 
+Add a **unique** visualizer (i.e., add code under `client/src/visualizers/`) \
 One component we will add is a music visualizer [https://en.wikipedia.org/wiki/Music_visualization](https://en.wikipedia.org/wiki/Music_visualization). The base template provides a simple waveform visualizer.
 
 Add a **new** visualizer
