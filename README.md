@@ -22,7 +22,7 @@ https://developer-soni.github.io/Instrument-Visualizer \
 
 
 # LamdbaVibe
-CSC 600 musical application. Get ready to shred.
+Musical application. Get ready to shred.
 ## Client
 The client contains the code which you will modify as part of the course. It constitutes the frontend (UI) portion of this web application.
 In the `client` directory, you can run:
